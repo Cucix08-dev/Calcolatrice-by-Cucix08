@@ -1,0 +1,124 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+body{
+    background-color: rgb(30, 30, 30);
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* CALCOLATRICE */
+
+div#container-calcolatrice{
+    height: auto;
+    width: 400px;
+    border-radius: 30px;
+    background-color: rgb(89, 89, 89);
+    margin: 100px auto;
+    border: 20px solid rgb(89, 89, 89);
+    cursor: pointer;
+}
+
+div#container-calcolatrice:hover{
+    animation: ease-glow 0.4s ease-in-out forwards;
+}
+
+div#container-risultato{
+    background-color: rgb(60, 60, 60);
+    aspect-ratio: 2/1;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#risultato{
+    font-size: 32px;
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    font-family: monospace;
+    text-align: right;
+    width: 90%;
+    border-radius: inherit;
+}
+
+#risultato:focus{
+    outline: none;
+}
+
+div#container-tasti{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+}
+
+div.button{
+    background-color: rgb(98, 98, 98);
+    border-radius: 10px;
+    text-align: center;
+    width: 99%;
+    aspect-ratio: 6/5;
+    margin: auto;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+    font-size: 20px;
+}
+
+div.button:hover{
+    transform: scale(1.05);
+    animation: ease-glow 0.2s ease forwards;
+}
+
+div.segno{
+    background-color: orange;
+}
+
+div.trasparente{
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    filter: opacity(0.5) !important;
+}
+
+/* ANIMATIONS */
+@keyframes ease-glow{
+    0% {
+        box-shadow:
+            0 0 2px rgb(95, 95, 95), 
+            0 0 5px rgb(79, 79, 79),
+            0 0 7px rgb(58, 58, 58),
+            0 0 10px rgb(31, 31, 31);
+    }
+
+    50% {
+        box-shadow:
+            0 0 5px rgb(133, 133, 133), 
+            0 0 10px rgb(117, 117, 117),
+            0 0 15px rgb(98, 98, 98),
+            0 0 20px rgb(67, 67, 67);
+    }
+
+    100% {
+        box-shadow:
+            0 0 10px rgb(200, 200, 200), 
+            0 0 20px rgb(174, 174, 174),
+            0 0 30px rgb(120, 120, 120),
+            0 0 40px rgb(86, 86, 86);
+    }
+}
+
+@media (max-width: 768px) and (orientation:portrait) {
+    div.button:hover{
+        animation: none;
+    }
+}
