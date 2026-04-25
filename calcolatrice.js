@@ -1,6 +1,10 @@
 const buttons = document.querySelectorAll(".button");
 const operazione = document.querySelectorAll(".operazione");
 let risultato = document.getElementById("risultato");
+const body = document.getElementById("background")
+
+const mode = document.getElementById("mode");
+let darkTheme = true;
 
 let textRisultato = "";
 
@@ -9,6 +13,7 @@ let isElevato = false;
 function removeErrorText(text){
     return (text == "Errore" || text == "Indeterminato" || text == "Numero troppo grande")? "" : text;
 }
+
 
 let trasparenteApplicata = false;
 
@@ -22,6 +27,24 @@ setInterval(() => {
         trasparenteApplicata = false;
     }
 }, 100);
+
+document.getElementById('mode').addEventListener('click', () => {
+    darkTheme = !darkTheme
+    if (darkTheme){
+        mode.classList.add("dark");
+        mode.classList.remove("light");
+        mode.innerHTML = "Dark"
+        body.classList.add("dark");
+        body.classList.remove("light");
+    }
+    else{
+        mode.classList.remove("dark");
+        mode.classList.add("light");
+        mode.innerHTML = "Light"
+        body.classList.remove("dark")
+        body.classList.add("light")
+    }
+});
 
 buttons.forEach(el => {
     el.addEventListener("click", () => {
